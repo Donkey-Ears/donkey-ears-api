@@ -28,5 +28,20 @@ class UserViewSet(ModelViewSet):
         else:
             return Response(status=status.HTTP_401_UNAUTHORIZED)
 
+    @action(detail=True, methods=["get"])
+    def profile(self, request, pk=None):
+        """ Profile View. """
+        many = False
+
+        if request.user.is_superuser:
+            # Superuser의 경우 모든 프로필을 볼 수 있음.
+            user = super().get_queryset()
+            many = True
+        else:
+            # admin이 아닌 경우 본인의 프로필만 볼 수 있음.
+            user = request.user
+        data = UserSerializer(user, many=many).data
+        return Response(data, status=status.HTTP_200_OK)
+
     def logout(self, request):
         pass

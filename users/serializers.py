@@ -7,7 +7,8 @@ class UserSerializer(sz.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ("username", "password", "gender", "age")
+        fields = ("id", "username", "password", "gender", "age")
+        read_only_fields = ("id",)
 
     def create(self, validated_data):
         password = validated_data.get("password")

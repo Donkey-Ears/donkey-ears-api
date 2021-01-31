@@ -29,3 +29,6 @@ class User(AbstractUser):
 
     gender = models.CharField(choices=GENDER_CHOICES, max_length=8, blank=False)
     age = models.CharField(choices=AGE_CHOICES, max_length=5, blank=False)
+
+    class Meta:
+        ordering = ("id",)
