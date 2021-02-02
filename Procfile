@@ -1,1 +1,1 @@
-web: gunicorn donkey_ears_api.wsgi
+web: gunicorn donkey_ears_api.wsgi --log-file -
