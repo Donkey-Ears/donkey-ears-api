@@ -29,57 +29,8 @@
 
 ---
 
-## Api Urls
+## Api Document
 
-### URL
+### 아래의 문서를 참고 바랍니다.
 
-#### api/v1/users/<int:pk>/profile
-
-    + GET
-        1. 기능
-            - 프로필
-        2. 파라미터
-            - pk
-                - 회원가입시에 자동부여되는 Primary Key
-                - GET request 한 유저가 운영자인 경우엔 모든 프로필 일람을 볼 수 있으며(pk 오름차순), 운영자가 아닐 경우엔 본인의 프로필만 볼 수 있다.
-                - 운영자가 아닐 경우, pk에 아무리 다른 값을 넣더라도 본인의 프로필만 볼 수 있다.
-
-#### api/v1/users/
-
-    + POST
-        1. 기능
-            - 회원가입
-        2. 파라미터
-            + username
-                + 회원명. 영어로만 가능. ID 성격임.
-            + password
-                + 비밀번호. Django의 password validate 기능에 따라 너무 쉬운 password 등은 불가능할 수 있음.
-            + age
-                + 10대,20대,30대,40대 중에 선택함. 이 외의 나이대의 유저는 없을 것으로 일단 생각하고 제작하므로 선택지가 없다.
-            + gender
-                + 남성, 여성, 그 외의 성별 중에 선택한다.
-
-            + 그 외에 자신의 avatar 설정이 있을 수 있으나 이것은 서버 용량 관리 문제로 일단 보류.
-
----
-
-### api/v1/shouts
-
-####
-
-    + GET
-        1. 기능
-            + 본인의 모든 Shout들을 가져옴.
-            + Admin의 경우 모든 유저의 Shouts를 시계열순으로 봄.
-        2. 파라미터
-            + 없음
-
-####
-
-    + POST
-        1. 기능
-            + 신규 Shout
-            + 글자수 140 ~ 200. 미정.
-        2. 파라미터
-            + text
-                + 자유롭게 글씨를 넣는 것 뿐이다.
+https://documenter.getpostman.com/view/12230851/TW71jmLg
