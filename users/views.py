@@ -1,3 +1,4 @@
+import os
 import jwt
 from django.conf import settings
 from django.contrib.auth import authenticate
@@ -22,7 +23,7 @@ class UserViewSet(ModelViewSet):
         user = authenticate(username=username, password=password)
         if user is not None:
             encoded_jwt = jwt.encode(
-                {"pk": user.pk}, settings.SECRET_KEY, algorithm="HS256"
+                {"pk": user.pk}, os.environ.get("SECRET_KEY"), algorithm="HS256"
             )
             return Response(data={"token": encoded_jwt, "id": user.pk})
         else:

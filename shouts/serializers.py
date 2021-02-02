@@ -8,9 +8,16 @@ class ShoutSerializer(sz.ModelSerializer):
 
     class Meta:
         model = Shout
-        fields = ("user", "text")
+        fields = ("id", "user", "text")
+        read_only_fields = ("id",)
 
     def create(self, validated_data):
         request = self.context.get("request")
         shout = Shout.objects.create(user=request.user, **validated_data)
         return shout
+
+    def update(self, instance, validated_data):
+        request = self.context.get("request")
+        instance.text = validated_data.get("text", instance.text)
+        instance.save()
+        return instance

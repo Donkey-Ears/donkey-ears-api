@@ -7,3 +7,11 @@ class Shout(TimeStampedModel):
         "users.User", related_name="shouts", on_delete=models.CASCADE
     )
     text = models.TextField(max_length=200)
+
+    class Meta:
+        ordering = [
+            "-created",
+        ]
+
+    def __str__(self):
+        return self.text

@@ -10,6 +10,11 @@ class UserSerializer(sz.ModelSerializer):
         fields = ("id", "username", "password", "gender", "age")
         read_only_fields = ("id",)
 
+    def validate_username(self, value):
+        if ("@", "+") in value:
+            raise sz.ValidationError('Username에 "@" 또는 "+"를 사용할 수 없습니다.')
+        return value
+
     def create(self, validated_data):
         password = validated_data.get("password")
         user = super().create(validated_data)
