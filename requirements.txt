@@ -9,11 +9,11 @@ django-cors-headers==3.7.0
 django-dotenv==1.4.2
 djangorestframework==3.12.2
 flake8==3.8.4
-jwt==1.1.0
 mccabe==0.6.1
 mypy-extensions==0.4.3
 pathspec==0.8.1
 Pillow==8.1.0
+psycopg2-binary==2.8.6
 pycodestyle==2.6.0
 pycparser==2.20
 pyflakes==2.2.0
