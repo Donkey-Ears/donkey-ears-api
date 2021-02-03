@@ -11,7 +11,7 @@ class UserSerializer(sz.ModelSerializer):
         read_only_fields = ("id",)
 
     def validate_username(self, value):
-        if ("@", "+") in value:
+        if "@" in value or "+" in value:
             raise sz.ValidationError('Username에 "@" 또는 "+"를 사용할 수 없습니다.')
         return value
 
