@@ -44,7 +44,7 @@ class UserViewSet(ModelViewSet):
         data = UserSerializer(user, many=many).data
         return Response(data, status=status.HTTP_200_OK)
 
-    @action(detail=False, method=["post"])
+    @action(detail=False, methods=["post"])
     def logout(self, request):
         logout(request)
         data = {"success": "성공적으로 로그아웃 되었습니다."}
