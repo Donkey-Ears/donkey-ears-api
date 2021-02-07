@@ -1,7 +1,7 @@
 import os
 import jwt
 from django.conf import settings
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, logout
 from rest_framework import status
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.decorators import action
@@ -44,5 +44,8 @@ class UserViewSet(ModelViewSet):
         data = UserSerializer(user, many=many).data
         return Response(data, status=status.HTTP_200_OK)
 
+    @action(detail=False, method=["post"])
     def logout(self, request):
-        pass
+        logout(request)
+        data = {"success": "성공적으로 로그아웃 되었습니다."}
+        return Response(data=data, status=status.HTTP_200_OK)
