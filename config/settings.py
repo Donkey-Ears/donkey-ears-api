@@ -18,11 +18,17 @@ DEBUG = os.environ.get("DEBUG", "True")
 ADMINS = [
     ("sungwoongkang", "k900327s@gmail.com"),
 ]
-ALLOWED_HOSTS = ["127.0.0.1", ".herokuapp.com", "localhost", "netlify.app"]
+ALLOWED_HOSTS = ["127.0.0.1", ".herokuapp.com", "http://localhost:3000", "netlify.app"]
 
 CORS_ORIGIN_ALLOW_ALL = False
+CORS_ALLOW_CREDENTIALS = True
 
-CORS_ORIGINP_WHITELIST = ["127.0.0.1", ".herokuapp.com", "localhost", "netlify.app"]
+CORS_ORIGINP_WHITELIST = [
+    "127.0.0.1",
+    ".herokuapp.com",
+    "http://localhost:3000",
+    "netlify.app",
+]
 # Application definition
 
 DJANGO_APPS = [
