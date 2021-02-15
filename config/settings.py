@@ -23,7 +23,7 @@ ALLOWED_HOSTS = ["127.0.0.1", ".herokuapp.com", "http://localhost:3000", "netlif
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ALLOW_CREDENTIALS = True
 
-CORS_ORIGINP_WHITELIST = [
+CORS_ORIGIN_WHITELIST = [
     "127.0.0.1",
     ".herokuapp.com",
     "http://localhost:3000",
