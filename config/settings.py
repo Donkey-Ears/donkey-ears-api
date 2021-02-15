@@ -20,7 +20,9 @@ ADMINS = [
 ]
 ALLOWED_HOSTS = ["127.0.0.1", ".herokuapp.com", "localhost", "netlify.app"]
 
+CORS_ORIGIN_ALLOW_ALL = False
 
+CORS_ORIGINP_WHITELIST = ["127.0.0.1", ".herokuapp.com", "localhost", "netlify.app"]
 # Application definition
 
 DJANGO_APPS = [
